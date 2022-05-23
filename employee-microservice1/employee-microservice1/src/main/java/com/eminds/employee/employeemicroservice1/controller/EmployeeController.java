@@ -19,7 +19,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-   @PreAuthorize("hasRole('ADMIN')")
+   @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping("/save/v1")
     public ResponseEntity <EmployeeDto> saveEmployee(@RequestBody EmployeeDto employeeDto) throws DataAlreadyExistsException {
 

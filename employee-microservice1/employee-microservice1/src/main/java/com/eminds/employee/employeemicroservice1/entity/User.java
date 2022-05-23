@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
+import org.joda.time.DateTime;
 
 @Getter
 @Setter
@@ -23,6 +24,13 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private Integer loginCounbt;
+    private Boolean isActive =true;
+    private String ssoType;
+    private DateTime loginAt;
+    private DateTime createdAt;
+    private DateTime updatedAt;
+
 
    @ManyToMany(fetch =  FetchType.EAGER , cascade = CascadeType.ALL )
    @JoinTable(name ="user_roles",
