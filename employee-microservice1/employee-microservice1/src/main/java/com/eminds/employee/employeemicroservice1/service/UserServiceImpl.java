@@ -38,6 +38,7 @@ public class UserServiceImpl implements UserService{
         user.setUsername(registerDto.getUsername());
         user.setName(registerDto.getName());
         user.setRoles(registerDto.getRoles());
+        user.setIsActive(Boolean.TRUE);
 
         Long cid = userRepository.getUserByEmail(user.getEmail());
         Long cid1 =userRepository.getUserByUsername(user.getUsername());

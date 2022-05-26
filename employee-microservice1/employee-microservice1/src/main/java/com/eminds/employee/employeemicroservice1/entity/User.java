@@ -24,7 +24,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private Integer loginCounbt;
+    private Integer loginCounbt = 0;
     private Boolean isActive =true;
     private String ssoType;
     private DateTime loginAt;
@@ -39,5 +39,24 @@ public class User {
 
     private Set<Role> roles;
 
+
+   @PrePersist
+    public void onSave(){
+
+       // created at and updated at
+
+       DateTime currentDateTime = new DateTime();
+
+       this.createdAt = currentDateTime;
+       this.updatedAt = currentDateTime;
+   }
+   @PostPersist
+   public void onUpdate(){
+       //update At
+
+       DateTime currentDateTime = new DateTime();
+       this.updatedAt = currentDateTime;
+
+   }
 
 }
